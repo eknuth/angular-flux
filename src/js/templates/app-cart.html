@@ -1,0 +1,31 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Item</th>
+      <th>Qty</th>
+      <th></th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in items">
+      <td>
+        <remove-from-cart index="$index"></remove-from-cart>
+      </td>
+      <td>{{item.title}}</td>
+      <td>{{item.qty}}</td>
+      <td>
+        <decrease index="$index"></decrease>
+        <increase index="$index"></increase>
+      </td>
+      <td>{{item.qty * item.cost | currency: "$"}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4" class="text-right">Total</td>
+    <td>{{total | currency: "$"}}</td>
+  </tr>
+  </tfoot>
+</table>
