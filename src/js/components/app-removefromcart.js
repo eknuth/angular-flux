@@ -2,12 +2,13 @@ var AppActions = require('../actions/app-actions');
 var componentBase = require('./component-base');
 
 module.exports = componentBase({
-  template: require('../templates/app.html'),
+  template: '<button ng-click="handleClick(index)">x</button>',
   scope: {
+    index: "="
   },
   link: function($scope, elm, attrs) {
-    $scope.handleClick = function(){
-      AppActions.addItem('this is the item');
+    $scope.handleClick = function(index){
+      AppActions.removeItem(index);
     };
   }
 });
